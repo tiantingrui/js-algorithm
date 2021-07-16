@@ -1,6 +1,6 @@
 // 合并两个有序的链表
 
-const mergeTwoLists = (l1, l2) {
+const mergeTwoLists = (l1, l2) => {
   const head = new ListNode()
   
   let cur = head 
