@@ -122,8 +122,13 @@ node1.next = node3.next
 
 ### leetcode 练习题目
 
-+ 单链表反转  lc 206
-+ 链表中环的检测  lc 141
-+ 两个有序的链表合并 lc 21
-+ 删除链表倒数第n个结点 lc 19
-+ 求链表的中间结点 lc 876
+- [x] 单链表反转  lc 206 easy
+  - [x] 拓展：局部反转一个列表：https://juejin.cn/book/6844733800300150797/section/6844733800354676743 (**阿里原题**) middle
+- [x] 两数相加 lc2 middle
+- [x] 删除链表中的节点 lc 237 easy
+- [x] 删除排序链表中的重复元素 lc83 easy
+- [x] 删除链表倒数第n个结点 lc 19 middle
+- [x] 链表中环的检测  lc 141 easy
+- [x] 两个有序的链表合并 lc 21 easy
+- [x] 合并 K 个升序链表 lc 23 hard
+- [x] 求链表的中间结点 lc 876 easy
