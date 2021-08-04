@@ -112,11 +112,53 @@ const binaryTree ={
 
 ```
 
+#### 二叉树的深度优先遍历
+```js
+const dfsBt = (bt) => {
+  if (!bt) return 
+  console.log(bt.val)
+  if (bt.left) dfsBt(bt.left)
+  if (bt.right) dfsBt(bt.right)
+}
+```
+#### 二叉树的广度优先遍历
+```js
+const bfsBt = (bt) => {
+  if (!bt) return 
+  const q = [bt]
+  while (q.length) {
+    const n = q.shift()
+    console.log(n.val
+    if (n.left) q.push(n.left)
+    if (n.right) q.push(n.right)
+  }
+}
+```
 #### 二叉树 先序遍历
 **先序遍历算法口诀**
 1. 访问根节点
 2. 对根节点的左子树进行先序遍历（递归）
 3. 对根节点的右子树进行先序遍历（递归）
+
+```js
+const preOrder = (root) => {
+  if (!root) return 
+  console.log(root.val)
+  preOrder(root.left)
+  preOrder(root.right)
+}
+// 非递归版本 stack
+const preOrderStack = (root) => {
+  if (!root) return 
+  const stack = [root]
+  while (stack.length) {
+    const n = stack.pop()
+    console.log(n.val)
+    if (n.right) stack.push(n.right)
+    if (n.left) stack.push(n.left)
+  }
+}
+```
 
 #### 二叉树 中序遍历
 **中序遍历算法口诀**
@@ -124,11 +166,61 @@ const binaryTree ={
 2. 访问根节点
 3. 对根节点的右子树进行中序遍历
 
+```js
+const inOrder = (root) => {
+  if (!root) return 
+  inOrder(root.left)
+  console.log(root.val)
+  inOrder(root.right)
+}
+// 非递归版本 stack 左 -> 根 -> 右
+const inOrderStack = (root) => {
+  if (!root) return 
+  const stack = []
+  let p = root
+  while (stack.length || p) {
+    while (p) {
+      stack.push(p)
+      p = p.left
+    }
+    const n = stack.pop()
+    console.log(n.val)
+    p = n.right
+  }
+}
+```
+
 #### 二叉树 后序遍历
 **后序遍历算法口诀**
 1. 对根节点的左子树进行后序遍历
 2. 对根节点的右子树进行后序遍历
 3. 访问根节点
+
+```js
+const postOrder = (root) => {
+  if (!root) return 
+  postOrder(root.left)
+  postOrder(root.right)
+  console.log(root.val)
+}
+
+// 非递归版本 stack 左 右 根
+const postOrderStack = (root) => {
+  if (!root) return 
+  const stack = [root]
+  const res = []
+  while (stack.length) {
+    const n = stack.pop()
+    res.push(n)
+    if (n.left) stack.push(n.left)
+    if (n.right) stack.push(n.right)
+  }
+  while (res.length) {
+    const n = res.pop()
+    console.log(n.val)
+  }
+}
+```
 
 ### 非递归版 二叉树的先中后序遍历
 **重点是利用栈这个数据结构去实现**
